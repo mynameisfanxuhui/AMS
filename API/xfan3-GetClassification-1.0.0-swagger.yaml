@@ -1,0 +1,64 @@
+swagger: '2.0'
+info:
+  description: Get All The Classification API
+  version: 1.0.0
+  title: Get All The Classification API
+  # put the contact info for your development or API team
+  contact:
+    email: xfan3@wpi.edu
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+
+paths:
+  /classification:
+    get:
+      tags:
+      - developers
+      summary: request to get all the classification
+      operationId: getClassification
+      description: get classification
+      produces:
+      - application/json
+      
+      responses:
+        200:
+          description: success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Classification'
+        400:
+          description: bad input parameter
+
+definitions:
+  Classification:
+    type: object
+    required:
+    - postion
+    - name
+    properties:
+      postion:
+        type: string
+        format: uuid
+        example: d290f1ee-6c54-4b01-90e6-d701748f0851
+      name:
+        type: string
+        example: Widget Adapter
+
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /xfan3/GetClassification/1.0.0
+# schemes:
+#  - http
+# Added by API Auto Mocking Plugin
+schemes:
+ - http

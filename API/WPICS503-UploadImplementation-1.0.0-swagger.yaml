@@ -1,0 +1,73 @@
+swagger: '2.0'
+info:
+  description: Add Implementation
+  version: 1.0.0
+  title: Add Implementation
+  # put the contact info for your development or API team
+  contact:
+    email: xfan3@wpi.edu
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+
+paths:
+  /classification/implementation/add/:
+    post:
+      tags:
+      - developers
+      summary: uploadImplementation
+      operationId: uploadImplementation
+      description: uploadImplementation
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: uploadImplementation
+        description: uploadImplementation
+        schema:
+          $ref: '#/definitions/Implementation'
+      responses:
+        200:
+          description: success
+        400:
+          description: bad input parameter
+
+definitions:
+  Implementation:
+    type: object
+    required:
+    - id
+    - language
+    - code
+    properties:
+      id:
+        type: string
+      language:
+        type: string
+      code:
+        type: string
+
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+# basePath: /xfan3/GetClassification/1.0.0
+# schemes:
+#  - http
+# Added by API Auto Mocking Plugin
+schemes:
+ - https
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/GetAlgorithm/1.0.0
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/AddAlgorithms/1.0.0
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/AddProblemInstance/1.0.0
+# Added by API Auto Mocking Plugin
+basePath: /WPICS503/UploadImplementation/1.0.0

@@ -1,0 +1,64 @@
+swagger: '2.0'
+info:
+  description: Remove Implementation
+  version: 1.0.0
+  title: Remove Implementation
+  # put the contact info for your development or API team
+  contact:
+    email: xfan3@wpi.edu
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+
+paths:
+  /classification/implementation/remove/{implementationID}:
+    post:
+      tags:
+      - developers
+      summary: removeimplementation
+      operationId: removeimplementation
+      description: removeimplementation
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: implementationID
+        description: iID
+        required: true
+        type: string
+     
+      responses:
+        200:
+          description: success
+        400:
+          description: bad input parameter
+
+
+
+
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+# basePath: /xfan3/GetClassification/1.0.0
+# schemes:
+#  - http
+# Added by API Auto Mocking Plugin
+schemes:
+ - https
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/GetAlgorithm/1.0.0
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/ReclassifyAlgorithm/1.0.0
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/RemoveAlgorithm/1.0.0
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/RemoveProblemInstance/1.0.0
+# Added by API Auto Mocking Plugin
+basePath: /xfan3/RemoveImplementation/1.0.0

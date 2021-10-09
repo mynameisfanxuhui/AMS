@@ -1,0 +1,74 @@
+swagger: '2.0'
+info:
+  description: Add Classification
+  version: 1.0.0
+  title: Add Classification
+  # put the contact info for your development or API team
+  contact:
+    email: xfan3@wpi.edu
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+
+paths:
+  /classification/add:
+    post:
+      tags:
+      - developers
+      summary: Add classification
+      operationId: AddClassification
+      description: Add classification
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: AddClassificationInfo
+        description: add classification information
+        schema:
+          $ref: '#/definitions/AddClassificationInfo'
+      responses:
+        201:
+          description: item added
+        400:
+          description: invalid input, object invalid
+  
+
+definitions:
+  AddClassificationInfo:
+    type: object
+    required:
+    - id
+    - name
+    - information
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      information:
+        type: string
+  
+        
+
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+# basePath: /xfan3/GetClassification/1.0.0
+# schemes:
+#  - http
+# Added by API Auto Mocking Plugin
+schemes:
+ - https
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/GetClassificationHierarchy/1.0.0
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/RemoveClassification/1.0.0
+# Added by API Auto Mocking Plugin
+basePath: /WPICS503/AddClassification/1.0.0

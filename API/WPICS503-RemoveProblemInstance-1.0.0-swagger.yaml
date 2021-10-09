@@ -1,0 +1,62 @@
+swagger: '2.0'
+info:
+  description: Remove ProblemInstance
+  version: 1.0.0
+  title: Remove ProblemInstance
+  # put the contact info for your development or API team
+  contact:
+    email: xfan3@wpi.edu
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+
+paths:
+  /classification/algorithm/remove/problemInstance/{problemInstanceID}:
+    post:
+      tags:
+      - developers
+      summary: removeProblemInstance
+      operationId: removeProblemInstance
+      description: removeProblemInstance
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: problemInstanceID
+        description: pid
+        required: true
+        type: string
+     
+      responses:
+        200:
+          description: success
+        400:
+          description: bad input parameter
+
+
+
+
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+# basePath: /xfan3/GetClassification/1.0.0
+# schemes:
+#  - http
+# Added by API Auto Mocking Plugin
+schemes:
+ - https
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/GetAlgorithm/1.0.0
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/ReclassifyAlgorithm/1.0.0
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/RemoveAlgorithm/1.0.0
+# Added by API Auto Mocking Plugin
+basePath: /WPICS503/RemoveProblemInstance/1.0.0

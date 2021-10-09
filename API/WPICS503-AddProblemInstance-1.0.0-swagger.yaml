@@ -1,0 +1,68 @@
+swagger: '2.0'
+info:
+  description: Add ProblemInstance
+  version: 1.0.0
+  title: Add ProblemInstance
+  # put the contact info for your development or API team
+  contact:
+    email: xfan3@wpi.edu
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+
+paths:
+  /classification/algorithm/problemInstance/add/:
+    post:
+      tags:
+      - developers
+      summary: addProblemInstance
+      operationId: addProblemInstance
+      description: addProblemInstance
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: addProblemInstance
+        description: addProblemInstance
+        schema:
+          $ref: '#/definitions/ProblemInstance'
+      responses:
+        200:
+          description: success
+        400:
+          description: bad input parameter
+
+definitions:
+  ProblemInstance:
+    type: object
+    required:
+    - id
+    - information
+    properties:
+      id:
+        type: string
+      information:
+        type: string
+
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+# basePath: /xfan3/GetClassification/1.0.0
+# schemes:
+#  - http
+# Added by API Auto Mocking Plugin
+schemes:
+ - https
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/GetAlgorithm/1.0.0
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/AddAlgorithms/1.0.0
+# Added by API Auto Mocking Plugin
+basePath: /WPICS503/AddProblemInstance/1.0.0

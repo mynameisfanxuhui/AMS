@@ -1,0 +1,64 @@
+swagger: '2.0'
+info:
+  description: Merge Classification
+  version: 1.0.0
+  title: Merge Classification
+  # put the contact info for your development or API team
+  contact:
+    email: xfan3@wpi.edu
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+
+paths:
+  /classification/merge/{classIDA}/{classIDB}:
+    post:
+      tags:
+      - developers
+      summary: Merge classification
+      operationId: MergeClassification
+      description: Merge classification
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: classIDA
+        description: first merge class
+        required: true
+        type: string
+      - in: path
+        name: classIDB
+        required: true
+        type: string
+      responses:
+        201:
+          description: item removed
+        400:
+          description: invalid input, object invalid
+        409:
+          description: do not have such classification
+
+        
+
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+# basePath: /xfan3/GetClassification/1.0.0
+# schemes:
+#  - http
+# Added by API Auto Mocking Plugin
+schemes:
+ - https
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/GetClassificationHierarchy/1.0.0
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/RemoveClassification/1.0.0
+# Added by API Auto Mocking Plugin
+basePath: /WPICS503/mergeClassification/1.0.0

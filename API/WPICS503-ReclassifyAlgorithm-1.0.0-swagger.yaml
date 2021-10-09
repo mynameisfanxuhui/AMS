@@ -1,0 +1,61 @@
+swagger: '2.0'
+info:
+  description: Reclassify Algorithm
+  version: 1.0.0
+  title: Reclassify Algorithm
+  # put the contact info for your development or API team
+  contact:
+    email: xfan3@wpi.edu
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+
+paths:
+  /classification/algorithm/reclassify/{algorithmID}/{newClassifyID}:
+    post:
+      tags:
+      - developers
+      summary: getAlgorithm
+      operationId: getAlgorithm
+      description: getAlgorithm
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: algorithmID
+        description: getAlgorithm by id
+        required: true
+        type: string
+      - in: path
+        name: newClassifyID
+        required: true
+        type: string
+      responses:
+        200:
+          description: success
+        400:
+          description: bad input parameter
+
+
+
+
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+# basePath: /xfan3/GetClassification/1.0.0
+# schemes:
+#  - http
+# Added by API Auto Mocking Plugin
+schemes:
+ - https
+# Added by API Auto Mocking Plugin
+# basePath: /WPICS503/GetAlgorithm/1.0.0
+# Added by API Auto Mocking Plugin
+basePath: /WPICS503/ReclassifyAlgorithm/1.0.0
